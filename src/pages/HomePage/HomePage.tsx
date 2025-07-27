@@ -10,8 +10,7 @@ import { useDebounce } from '../../app/hooks';
 import { useSearchUsersQuery} from '../../services/api/githubApi';
 import type {  GitHubApiError } from '../../common/types/index';
 import type { GitHubUser } from '../../common/types/index';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 
 export const HomePage: React.FC = () => {
 
@@ -21,15 +20,14 @@ export const HomePage: React.FC = () => {
   const [selectedUserLogin, setSelectedUserLogin] = useState<string | null>(null);
 
 const {
-    data: searchResults, // Результаты поиска
-    isLoading,         // Флаг загрузки (первоначальная загрузка или повторный запрос)
-    isFetching,        // Флаг получения (показывает, что запрос активен, даже при кэшировании)
-    isError,           // Добавлено: Флаг ошибки
-    error,             // Добавлено: Объект ошибки
-    refetch            // Функция для повторного запроса (например, при ошибке)
+    data: searchResults, 
+    isLoading,        
+    isFetching,        
+    isError,          
+    error,             
   } = useSearchUsersQuery(debouncedSearchTerm, {
-    skip: debouncedSearchTerm.length === 0, // Важно: Пропускаем запрос, если строка поиска пуста
-    pollingInterval: 0, // Отключаем polling, т.к. поиск запускается по вводу
+    skip: debouncedSearchTerm.length === 0, 
+    pollingInterval: 0, 
   });
 
  
@@ -75,7 +73,7 @@ return (
     <div className={styles.homePage}>
       <div className={styles.searchSection}>
         <div className={styles.searchInputWrapper}>
-          {/* <FontAwesomeIcon icon={faSearch} className={styles.searchIcon} /> */}
+    
           <Input
             id="search-input"
             type="text"
