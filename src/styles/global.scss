@@ -1,0 +1,49 @@
+// src/styles/global.scss
+@import 'variables';
+@import 'mixins';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap'); 
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-family-primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $light-bg; // Новый светлый фон
+  color: $text-color;
+  line-height: $line-height-base;
+  overflow-x: hidden; // Предотвращаем горизонтальный скролл
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+  padding: $padding-lg;
+  max-width: 1200px; // Ограничение по ширине для лучшей читаемости
+  margin: 0 auto; // Центрирование контента
+  width: 100%; // Гарантируем, что занимает всю доступную ширину
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $dark-bg; // Более темный цвет для заголовков
+  margin-bottom: $spacing-unit * 2;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color $transition-speed-fast $transition-ease;
+
+  &:hover {
+    color: darken($primary-color, 10%);
+  }
+}

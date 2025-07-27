@@ -1,0 +1,51 @@
+
+// Modern Color Palette
+$primary-color: #6a00ff; // Rich Purple
+$secondary-color: #8c8c8c; // Medium Gray
+$accent-color: #00bcd4; // Cyan for highlights
+$success-color: #4caf50; // Green
+$danger-color: #f44336; // Red
+$warning-color: #ff9800; // Orange
+$info-color: #2196f3; // Blue
+$light-color: #f8f9fa;
+$dark-color: #343a40;
+$text-color: #212529;
+
+
+// Backgrounds & Text
+$light-bg: #f5f7fa; 
+$dark-bg:rgb(75, 19, 131); // Dark blue-gray for accents/footers
+$text-color: #333333; // Dark gray for main text
+$light-text-color: #ffffff; // White for text on dark backgrounds
+
+// Borders & Shadows
+$border-color: #e0e0e0;
+$spacing-unit: 8px;
+$border-radius: 8px; // Slightly larger for softer look
+$card-border-radius: 12px; // Even larger for cards
+
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15); // Deeper shadow for cards
+$shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2); // For modals
+
+$box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+$box-shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.15);
+
+
+
+// Spacing
+$spacing-unit: 8px;
+$padding-sm: $spacing-unit * 1.5; // 12px
+$padding-md: $spacing-unit * 2;   // 16px
+$padding-lg: $spacing-unit * 3;   // 24px
+
+// Typography
+$font-family-primary: 'Inter', sans-serif; // Google Font for modern look
+$font-size-base: 16px;
+$line-height-base: 1.6;
+
+// Transitions
+$transition-speed-fast: 0.2s;
+$transition-speed-normal: 0.3s;
+$transition-speed-slow: 0.5s;
+$transition-ease: ease-in-out;

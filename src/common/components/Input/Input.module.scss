@@ -1,0 +1,49 @@
+@import '../../../styles/variables';
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+}
+
+.input {
+  width: 100%;
+  padding: $spacing-unit * 1.2 $spacing-unit * 1.5;
+  padding-left: $spacing-unit * 4; // отступ под иконку
+  background-color: #1f2a48;
+  border: none;
+  border-radius: $border-radius * 2;
+  font-size: 1rem;
+  color: #ffffff;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.3);
+  }
+
+  &.inputError {
+    box-shadow: 0 0 0 2px rgba($danger-color, 0.4);
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  left: $spacing-unit * 1.2;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  color: #007bff; // ярко-синий
+  pointer-events: none;
+}
+
+.errorMessage {
+  margin-top: $spacing-unit * 0.5;
+  font-size: 0.875rem;
+  color: $danger-color;
+}
