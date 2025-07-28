@@ -22,7 +22,6 @@ export const UserDetailsModal: React.FC<UserDetailsModalProps> = ({ username, on
     skip: !username, 
   });
 
-
   useEffect(() => {
     if (username) {
       document.body.style.overflow = 'hidden'; 
@@ -38,45 +37,42 @@ export const UserDetailsModal: React.FC<UserDetailsModalProps> = ({ username, on
     return null; 
   }
 
-
   if (isLoading) {
     return (
       <div className={styles.modalOverlay} onClick={onClose}>
         <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
           <Loader />
           <Button onClick={onClose} variant="secondary" className={styles.closeButton}>
-            Закрыть
+            Close
           </Button>
         </div>
       </div>
     );
   }
-
 
   if (isError) {
     const apiError = error as GitHubApiError; 
     return (
       <div className={styles.modalOverlay} onClick={onClose}>
         <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-          <h2 className={styles.modalTitle}>Ошибка загрузки</h2>
+          <h2 className={styles.modalTitle}>Loading Error</h2>
           <p className={styles.errorMessage}>
-            Не удалось загрузить данные пользователя.{' '}
-            {apiError?.message ? `Ошибка: ${apiError.message}` : 'Пожалуйста, попробуйте еще раз.'}
+            Failed to load user data.{' '}
+            {apiError?.message ? `Error: ${apiError.message}` : 'Please try again.'}
           </p>
           <Button onClick={onClose} variant="danger" className={styles.closeButton}>
-            Закрыть
+            Close
           </Button>
         </div>
       </div>
     );
   }
 
-
   return (
     <div className={styles.modalOverlay} onClick={onClose}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <h2 className={styles.modalTitle}>
-          Детали пользователя: {userDetails?.login}
+          User Details: {userDetails?.login}
         </h2>
         {userDetails && (
           <div className={styles.details}>
@@ -88,27 +84,27 @@ export const UserDetailsModal: React.FC<UserDetailsModalProps> = ({ username, on
                 e.currentTarget.src = 'https://placehold.co/150x150/CCCCCC/FFFFFF?text=No+Avatar';
               }}
             />
-            {/* Отображаем имя, если оно есть, иначе логин */}
+            {/* Display name if exists, otherwise login */}
             <p className={styles.detailItem}>
-              <strong>Имя:</strong> {userDetails.name || userDetails.login}
+              <strong>Name:</strong> {userDetails.name || userDetails.login}
             </p>
-            
+
             {userDetails.bio && (
               <p className={styles.detailItem}>
-                <strong>Био:</strong> {userDetails.bio}
+                <strong>Bio:</strong> {userDetails.bio}
               </p>
             )}
             <p className={styles.detailItem}>
-              <strong>Публичные репозитории:</strong> {userDetails.public_repos}
+              <strong>Public Repositories:</strong> {userDetails.public_repos}
             </p>
             <p className={styles.detailItem}>
-              <strong>Подписчики:</strong> {userDetails.followers}
+              <strong>Followers:</strong> {userDetails.followers}
             </p>
             <p className={styles.detailItem}>
-              <strong>Подписки:</strong> {userDetails.following}
+              <strong>Following:</strong> {userDetails.following}
             </p>
             <p className={styles.detailItem}>
-              <strong>Профиль GitHub:</strong>{' '}
+              <strong>GitHub Profile:</strong>{' '}
               <a
                 href={userDetails.html_url}
                 target="_blank"
@@ -120,17 +116,17 @@ export const UserDetailsModal: React.FC<UserDetailsModalProps> = ({ username, on
             </p>
             {userDetails.company && (
               <p className={styles.detailItem}>
-                <strong>Компания:</strong> {userDetails.company}
+                <strong>Company:</strong> {userDetails.company}
               </p>
             )}
             {userDetails.location && (
               <p className={styles.detailItem}>
-                <strong>Местоположение:</strong> {userDetails.location}
+                <strong>Location:</strong> {userDetails.location}
               </p>
             )}
             {userDetails.blog && (
               <p className={styles.detailItem}>
-                <strong>Блог:</strong>{' '}
+                <strong>Blog:</strong>{' '}
                 <a
                   href={userDetails.blog}
                   target="_blank"
@@ -142,12 +138,12 @@ export const UserDetailsModal: React.FC<UserDetailsModalProps> = ({ username, on
               </p>
             )}
             <p className={styles.detailItem}>
-              <strong>Присоединился:</strong> {new Date(userDetails.created_at).toLocaleDateString()}
+              <strong>Joined:</strong> {new Date(userDetails.created_at).toLocaleDateString()}
             </p>
           </div>
         )}
         <Button onClick={onClose} variant="secondary" className={styles.closeButton}>
-          Закрыть
+          Close
         </Button>
       </div>
     </div>

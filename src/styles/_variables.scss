@@ -1,27 +1,56 @@
 
-// Modern Color Palette
-$primary-color: #6a00ff; // Rich Purple
-$secondary-color: #8c8c8c; // Medium Gray
-$accent-color: #00bcd4; // Cyan for highlights
-$success-color: #4caf50; // Green
-$danger-color: #f44336; // Red
-$warning-color: #ff9800; // Orange
-$info-color: #2196f3; // Blue
+
+$primary-color: #4b4b81; 
+$secondary-color: #8c8c8c; 
+$accent-color: #083199; 
+$success-color: #4caf50; 
+$danger-color: #f44336; 
+$warning-color: #ff9800; 
+$info-color: #0c46d8; 
 $light-color: #f8f9fa;
 $dark-color: #343a40;
 $text-color: #212529;
 
 
+
+
+
+
+
+
+// Light Theme Colors
+$light-theme-background: #f6f8ff; // Lighter background
+$light-theme-card-background: #ffffff; // Card background
+$light-theme-text-color: #4b6a9b; // Primary text color
+$light-theme-light-text: #697c9a; // Secondary text color
+$light-theme-placeholder-color: #4b6a9b; // Placeholder text color 
+$light-theme-icon-color: #2b2b2b; // Default icon color
+$light-theme-border-color: #e6ecf4; // Input/general border color
+$light-theme-error-background: lighten($danger-color, 45%); // Error background
+
+
+// Dark Theme Colors
+$dark-theme-background: #8d9cbc; 
+$dark-theme-card-background: #475680; // Dark card background
+$dark-theme-text-color: #ffffff; // White text
+$dark-theme-light-text: #ffffff; // White text (can be slightly different shade)
+$dark-theme-placeholder-color: #ffffff; // Placeholder text color in dark mode 
+$dark-theme-icon-color: #ffffff; // White icon color
+$dark-theme-border-color: #1e2a47; // Dark input/general border
+$dark-theme-error-background: darken($danger-color, 15%); // Error background for dark theme
+$dark-theme-primary-hover-color: darken($accent-color, 10%); // Hover color for primary in dark theme (using accent)
+
+
 // Backgrounds & Text
 $light-bg: #f5f7fa; 
-$dark-bg:rgb(75, 19, 131); // Dark blue-gray for accents/footers
+$dark-bg:#13134d; // Dark blue-gray for accents/footers
 $text-color: #333333; // Dark gray for main text
 $light-text-color: #ffffff; // White for text on dark backgrounds
 
 // Borders & Shadows
 $border-color: #e0e0e0;
 $spacing-unit: 8px;
-$border-radius: 8px; // Slightly larger for softer look
+$border-radius: 8px; 
 $card-border-radius: 12px; // Even larger for cards
 
 $shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
@@ -29,7 +58,7 @@ $shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15); // Deeper shadow for cards
 $shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2); // For modals
 
 $box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
-$box-shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.15);
+$box-shadow-medium: 0 4px 8px rgba(164, 153, 153, 0.15);
 
 
 
@@ -39,8 +68,29 @@ $padding-sm: $spacing-unit * 1.5; // 12px
 $padding-md: $spacing-unit * 2;   // 16px
 $padding-lg: $spacing-unit * 3;   // 24px
 
+
+$spacing-unit-half: $spacing-unit * 0.5; // 4px
+$spacing-unit-1: $spacing-unit; // 8px
+$spacing-unit-2: $spacing-unit * 2; // 16px
+$spacing-unit-3: $spacing-unit * 3; // 24px
+$spacing-unit-4: $spacing-unit * 4; // 32px
+
+$border-radius: 8px; 
+$border-radius-lg: 12px; 
+$border-radius-xl: 16px; 
+
+
+// Shadows
+$box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.08); 
+$box-shadow-medium: 0 4px 12px rgba(119, 116, 116, 0.15); 
+$box-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2); 
+$dark-box-shadow-dark: 0 4px 12px rgba(0, 0, 0, 0.4); 
+
+
+$max-width-desktop: 730px;
+
 // Typography
-$font-family-primary: 'Inter', sans-serif; // Google Font for modern look
+$font-family-primary: 'Space Mono', monospace;
 $font-size-base: 16px;
 $line-height-base: 1.6;
 
@@ -49,3 +99,8 @@ $transition-speed-fast: 0.2s;
 $transition-speed-normal: 0.3s;
 $transition-speed-slow: 0.5s;
 $transition-ease: ease-in-out;
+
+
+// Transition durations
+$transition-duration-fast: 0.15s;
+$transition-duration-normal: 0.3s;

@@ -1,56 +1,60 @@
 
 
 
-
 @import '../../../../styles/mixins';
 @import '../../../../styles/variables';
 
 
 .header {
+  @include flex-center; 
+  justify-content: center; 
+  padding: $spacing-unit * 3 $spacing-unit * 4; 
+  background-color: var(--card-background); 
+  color: var(--text-color); 
+  box-shadow: $box-shadow-light; 
 
-  color: $light-text-color; // Светлый текст
-  padding: $padding-md $padding-lg;
-  box-shadow: $shadow-md; // Небольшая тень для объема
-  display: flex;
-  justify-content: center; // Центрируем контент
-  align-items: center;
-  position: sticky; // Прилипающий заголовок
-  top: 0;
-  z-index: 50; // Над остальным контентом
+  @include respond-to('small') {
+    padding: $spacing-unit * 2 $spacing-unit * 2; 
+  }
+}
 
-  .container {
-    max-width: 1200px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.container {
+  @include flex-center;
+  justify-content: space-between; 
+  width: 100%; 
+  max-width: $max-width-desktop; 
+}
+
+.title { 
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-color); 
+}
+
+.themeButton {
+  @include flex-center;
+  gap: $spacing-unit; 
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--light-text); 
+  font-weight: 700;
+  font-size: $font-size-base;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--accent-color); 
   }
 
-  .logo {
-    font-size: $font-size-base * 1.5; // Увеличим размер логотипа
-    font-weight: 700;
-    letter-spacing: 0.8px;
-    color: $light-text-color; // Белый цвет
-    span {
-      color: $accent-color; // Акцентный цвет для части текста
-    }
+
+  svg {
+    font-size: 1.2rem; 
+    transition: transform 0.2s ease;
   }
 
-  .nav {
-    ul {
-      list-style: none;
-      display: flex;
-      gap: $spacing-unit * 3; // Расстояние между элементами навигации
-    }
 
-    li a {
-      color: $light-text-color;
-      font-weight: 600;
-      transition: color $transition-speed-fast $transition-ease;
-
-      &:hover {
-        color: $accent-color; // Подсветка при наведении
-      }
-    }
+  &:active svg {
+    transform: scale(0.9);
   }
 }

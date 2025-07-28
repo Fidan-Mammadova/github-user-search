@@ -1,16 +1,20 @@
-// src/App.tsx
 import React from 'react';
-import  {HomePage}  from './pages/HomePage/HomePage';
-import  {Header}  from './common/components/Layout/Header/Header';
+import { HomePage } from './pages/HomePage/HomePage';
+import { Header } from './common/components/Layout/Header/Header';
+import { ThemeProvider } from './contexts/ThemeProvider'; 
+
 
 const App: React.FC = () => {
   return (
-    <>
-      <Header />
-      <main>
-        <HomePage />
-      </main>
-    </>
+    
+    <ThemeProvider>
+      <>
+        <Header />
+        <main>
+          <HomePage />
+        </main>
+      </>
+    </ThemeProvider>
   );
 };
 

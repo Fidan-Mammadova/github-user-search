@@ -1,112 +1,143 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
+
 .homePage {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: $padding-lg;
-  min-height: calc(100vh - 120px); // Чтобы контент занимал больше места
+  // Use CSS variable for padding
+  padding-top: var(--padding-lg);
+  min-height: calc(100vh - 120px);
 }
 
 .searchSection {
   width: 100%;
-  max-width: 731px; // Увеличиваем максимальную ширину для инпута и кнопки
-  margin-bottom: $spacing-unit * 4;
-  display: flex; // Делаем flex-контейнером для инпута и кнопки
-  gap: $spacing-unit * 2; // Отступ между инпутом и кнопкой
-  background-color: $light-text-color; // Белый фон для контейнера поиска
-  border-radius: $card-border-radius; // Закругленные углы
-  box-shadow: $shadow-md; // Тень
-  padding: $spacing-unit * 1.5; // Внутренние отступы
-  align-items: center; // Выравниваем элементы по центру
+  max-width: 731px;
+  // Use CSS variable for margin
+  margin-bottom:  var(--spacing-unit-4);
+  display: flex;
+  // Use CSS variable for gap
+  gap: var(--spacing-unit-2);
+  // Use CSS variable for background and shadow
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--color-card-shadow);
+  // Use CSS variable for padding
+  padding: var(--padding-md); /* Adjusted to padding-md as it's common for input sections */
+  align-items: center;
+    transition: background-color var(--transition-speed-normal) var(--transition-ease),
+              box-shadow var(--transition-speed-normal) var(--transition-ease);
 }
 
 .searchInputWrapper {
-  flex-grow: 1; // Поле ввода займет все доступное пространство
+  flex-grow: 1;
   display: flex;
   align-items: center;
 }
 
 .searchIcon {
-  font-size: $font-size-base * 1.5;
-  color: $secondary-color;
-  margin-right: $spacing-unit * 1.5;
-  padding-left: $spacing-unit;
+  // Use CSS variable for font size
+  font-size: calc(var(--font-size-base) * 1.5);
+  // Use CSS variable for color
+  color: var(--color-secondary);
+  // Use CSS variable for margin
+  margin-right: var(--spacing-unit-1); /* Adjusted from $spacing-unit * 1.5 to its CSS variable equivalent */
+  // Use CSS variable for padding
+  padding-left: var(--spacing-unit-1);
 }
 
 .searchInput {
-  // Дополнительные стили, если нужны, кроме базовых из Input.module.scss
-  .input { // Применяем стили к самому input
-    border: none; // Убираем границу инпута, так как она будет у контейнера
-    background-color: transparent; // Прозрачный фон
+  flex-grow: 1; // Ensure input takes available space
+  .input {
+    width: 100%; // Make the actual input element take full width
+    border: none;
+    background-color: transparent;
+    color: var(--color-text-primary); // Ensure text color adapts
+    &::placeholder {
+        color: var(--color-placeholder); // Placeholder color adapts
+    }
     &:focus {
-      box-shadow: none; // Убираем тень при фокусе
+      box-shadow: none;
+      outline: none; // Remove default outline
     }
   }
 }
 
 .searchButton {
-  flex-shrink: 0; // Кнопка не будет сжиматься
-  padding: $padding-md $padding-lg; // Увеличиваем padding для кнопки
+  flex-shrink: 0;
+  padding: var(--padding-md) var(--padding-lg);
 }
 
 .statusSection {
-  @include flex-center;
-  padding: $padding-lg;
+  // @include flex-center; // Assuming mixin applies display: flex, justify-content: center, align-items: center
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--padding-lg);
   width: 100%;
   max-width: 600px;
 }
 
 .errorMessage {
-  color: $danger-color;
+  // Use CSS variable for colors and background
+  color: var(--color-danger);
   font-weight: 600;
   text-align: center;
-  background-color: lighten($danger-color, 45%);
-  border: 1px solid $danger-color;
-  border-radius: $border-radius;
-  padding: $padding-md;
-  animation: fadeIn $transition-speed-fast forwards; // Анимация появления
+  background-color: var(--color-error-bg); // Now uses the theme-aware error background
+  border: 1px solid var(--color-danger);
+  border-radius: var(--border-radius);
+  padding: var(--padding-md);
+  animation: fadeIn var(--transition-speed-fast) forwards;
 }
 
 .initialMessage, .noResults {
-  color: $secondary-color;
-  font-size: $font-size-base * 1.1;
+  // Use CSS variable for colors and font size
+  color: var(--color-text-secondary);
+  font-size: calc(var(--font-size-base) * 1.1);
   text-align: center;
-  padding: $padding-lg;
-  animation: fadeIn $transition-speed-fast forwards; // Анимация появления
+  padding: var(--padding-lg);
+  animation: fadeIn var(--transition-speed-fast) forwards;
 }
 
 .userGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); // Адаптивная сетка
-  gap: $spacing-unit * 3; // Расстояние между карточками
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  // Use CSS variable for gap
+  gap: var(--spacing-unit-3);
   width: 100%;
-  max-width: 1000px; // Максимальная ширина сетки
-  margin-top: $spacing-unit * 4; // Отступ сверху
-  animation: fadeIn $transition-speed-normal forwards; // Анимация появления сетки
+  max-width: 1000px;
+  // Use CSS variable for margin
+  margin-top: var(--spacing-unit-4);
+  animation: fadeIn var(--transition-speed-normal) forwards;
 }
 
-// Адаптивность для мобильных устройств
+
 @media (max-width: 768px) {
   .homePage {
-    padding: $padding-md;
+    padding: var(--padding-md);
   }
 
   .searchSection {
-    flex-direction: column; // На мобильных кнопка будет под инпутом
-    gap: $spacing-unit;
-    padding: $padding-md; // Меньше padding
+    flex-direction: column;
+    gap: var(--spacing-unit-1);
+    padding: var(--padding-md);
   }
 
   .userGrid {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); // Уменьшим размер карточек на мобильных
-    gap: $spacing-unit * 2;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--spacing-unit-2);
   }
 }
 
 @media (max-width: 480px) {
   .userGrid {
-    grid-template-columns: 1fr; // Одна колонка на очень маленьких экранах
+    grid-template-columns: 1fr;
   }
+}
+
+// Keyframe for fade-in animation (can be in global.scss if used often)
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

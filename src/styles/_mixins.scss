@@ -1,121 +1,85 @@
+// src/styles/_variables.scss
 
 
 
+$primary-color:rgb(43, 66, 91); // Синий для акцентов (используется в button-styles по умолчанию)
+$secondary-color: #6c757d; 
+$accent-color:rgb(42, 104, 205); 
+$success-color: #4caf50; 
+$danger-color: #f44336; // Красный для ошибок
+$warning-color: #ff9800; // Оранжевый
+$info-color:rgb(5, 58, 143); // Голубой
 
 
-// src/styles/_mixins.scss
-@import 'variables';
+
+$light-theme-background: #f5f7fa; // Светлый фон страницы
+$dark-theme-background: #2a3550; // Темный фон страницы
+
+$light-theme-card-background: #ffffff; // Фон карточек в светлой теме
+$dark-theme-card-background: #334871; // Фон карточек в темной теме
+
+$light-theme-text-color: #333333; // Основной текст в светлой теме
+$dark-theme-text-color: #ffffff; // Основной текст в темной теме
+
+$light-theme-light-text: #697c9a; // Второстепенный/светлый текст в светлой теме
+$dark-theme-light-text: #90a4d4; // Второстепенный/светлый текст в темной теме
+
+$light-theme-icon-color: #4a638b; // Цвет иконок в светлой теме
+$dark-theme-icon-color: #00bcd4; // Цвет иконок в темной теме (акцентный)
+
+$light-theme-border-color: #e0e0e0; // Цвет границ в светлой теме
+$dark-theme-border-color: #2d3b5c; // Цвет границ в темной теме
+
+// Радиусы скругления
+$border-radius: 8px; // Базовый радиус
+$border-radius-lg: 12px; // Больший радиус для карточек/секций
+
+$box-shadow-light: 0 4px 6px rgba(58, 57, 57, 0.08);
+$box-shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.15);
+$box-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.2);
+
+// Отступы и интервалы
+$spacing-unit: 8px; // Базовая единица отступа
+$padding-sm: $spacing-unit * 1.5; // 12px
+$padding-md: $spacing-unit * 2;   // 16px
+$padding-lg: $spacing-unit * 3;   // 24px
+
+// Типографика
+$font-family-primary: 'Space Mono', sans-serif; // Используем Space Mono
+$font-size-base: 16px;
+$line-height-base: 1.6;
+
+// Переходы (для анимаций)
+$transition-speed-fast: 0.15s;
+$transition-speed-normal: 0.3s;
+$transition-speed-slow: 0.5s;
+$transition-ease: ease-in-out;
+
+// Брейкпоинты для адаптивного дизайна (используются в миксинах)
+$max-width-desktop: 900px; // Максимальная ширина контента для десктопов
 
 @mixin flex-center {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+}
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'small' {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+  @else if $breakpoint == 'medium' {
+    @media (max-width: 900px) {
+      @content;
+    }
+  }
+
 }
 
-@mixin button-styles($bg-color, $text-color: $light-text-color) {
-  padding: $padding-md $padding-lg;
-  border: none;
-  border-radius: $border-radius;
-  background-color: $bg-color;
-  color: $text-color;
-  cursor: pointer;
-  font-size: $font-size-base;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: all $transition-speed-normal $transition-ease;
-  box-shadow: $shadow-sm; // Добавим легкую тень
-
-  &:hover {
-    transform: translateY(-2px); // Легкий подъем
-    box-shadow: $shadow-md; // Усиление тени
-    filter: brightness(1.1);
-  }
-
-  &:active {
-    transform: translateY(0); // Возврат на место
-    box-shadow: $shadow-sm; // Возврат к легкой тени
-    filter: brightness(0.9);
-  }
-
-  &:disabled {
-    background-color: $secondary-color;
-    cursor: not-allowed;
-    opacity: 0.7;
-    transform: none;
-    box-shadow: none;
-  }
-}
 
 @mixin card-shadow {
-  box-shadow: $shadow-md;
-  transition: all $transition-speed-normal $transition-ease;
-
-  &:hover {
-    box-shadow: $shadow-lg;
-    transform: translateY(-5px); // Эффект парения
-  }
-}
-
-@mixin modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); // Более темный оверлей
-  @include flex-center;
-  z-index: 1000;
-  // Для анимации появления/исчезновения
-  animation: fadeIn $transition-speed-fast forwards;
-}
-
-@mixin modal-content {
-  background-color: $light-text-color;
-  border-radius: $card-border-radius;
-  padding: $padding-lg;
-  box-shadow: $shadow-lg;
-  max-width: 90%;
-  max-height: 90%;
-  overflow-y: auto;
-  position: relative;
-  animation: slideIn $transition-speed-normal $transition-ease forwards;
-}
-
-// Анимации
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideOut {
-  from {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: var(--card-background);
 }

@@ -1,22 +1,113 @@
 // src/styles/global.scss
 @import 'variables';
 @import 'mixins';
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+/* Define CSS Variables for Light Theme (Default) */
+:root {
+  // Primary colors based on _variables.scss
+  --color-primary: #{$primary-color};
+  --color-secondary: #{$secondary-color};
+  --color-success: #{$success-color};
+  --color-danger: #{$danger-color};
+  --color-warning: #{$warning-color};
+  --color-info: #{$info-color};
+  --color-accent: #{$accent-color};
+  --color-error-bg: #{$light-theme-error-background}; 
+
+
+  // Backgrounds
+  --color-bg-primary: #{$light-theme-background}; // Page background
+  --color-bg-secondary: #{$light-theme-card-background}; // Card background (Header, Input, Cards, Modals)
+
+  // Text colors
+  --color-text-primary: #{$light-theme-text-color}; // Main text color
+  --color-text-secondary: #{$light-theme-light-text}; // Lighter text color (e.g., descriptions, theme switch)
+  --color-placeholder: #{$light-theme-placeholder-color}; // Placeholder text color
+
+  // Borders & Inputs
+  --color-input-border: #{$light-theme-border-color}; // General border/input border color
+  --color-input-focus-border: #{$accent-color}; // Focus border (often accent color)
+
+  // Shadows
+  --color-card-shadow: #{$box-shadow-medium}; // Shadow for cards/elements (uses medium shadow from variables)
+
+  // Header specific background (can be same as card-background)
+  --color-header-bg: var(--color-bg-primary);
+
+
+  // Global SCSS variables mapped to CSS variables (for consistency across the app)
+  --font-family-primary: #{$font-family-primary};
+  --font-size-base: #{$font-size-base};
+  --line-height-base: #{$line-height-base};
+
+  --spacing-unit: #{$spacing-unit};
+  --spacing-unit-half: #{$spacing-unit * 0.5};
+  --spacing-unit-1: #{$spacing-unit};
+  --spacing-unit-2: #{$spacing-unit * 2};
+  --spacing-unit-3: #{$spacing-unit * 3};
+  --spacing-unit-4: #{$spacing-unit * 4};
+
+  --padding-sm: #{$padding-sm};
+  --padding-md: #{$padding-md};
+  --padding-lg: #{$padding-lg};
+
+  --border-radius: #{$border-radius};
+  --border-radius-lg: #{$border-radius-lg};
+  --border-radius-xl: #{$border-radius-xl};
+
+  --shadow-sm: #{$shadow-sm}; // Assuming shadow-sm from variables.scss
+  --shadow-md: #{$shadow-md}; // Assuming shadow-md from variables.scss
+  --shadow-lg: #{$shadow-lg}; // Assuming shadow-lg from variables.scss
+
+  --transition-speed-fast: #{$transition-speed-fast};
+  --transition-speed-normal: #{$transition-speed-normal};
+  --transition-ease: #{$transition-ease};
+}
+
+/* Dark Theme Overrides */
+[data-theme='dark'] {
+  --color-primary: #{$accent-color}; // Often accent in dark mode for primary actions
+  --color-secondary: #{$dark-theme-light-text}; // Lighter gray for secondary
+  --color-danger: #{$danger-color}; // Danger is often universal
+
+  --color-bg-primary: #{$dark-theme-background};
+  --color-bg-secondary: #{$dark-theme-card-background};
+  --color-text-primary: #{$dark-theme-text-color};
+  --color-text-secondary: #{$dark-theme-light-text};
+  --color-placeholder: #{$dark-theme-placeholder-color};
+
+  --color-input-border: #{$dark-theme-border-color};
+  --color-input-focus-border: #{$accent-color};
+  --color-card-shadow: #{$dark-box-shadow-dark}; // Assuming a dark shadow variable for consistency
+  --color-header-bg: var(--color-bg-secondary);
+    --color-error-bg: #{$dark-theme-error-background}; // Header background in dark mode
+}
+
+
+/* Base HTML Elements Styling */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: var(--font-family-primary); // Use CSS variable
+  font-weight: 600;
+  font-style: normal;
+  transition: color var(--transition-speed-normal) var(--transition-ease); // Smooth transition for text color
 }
 
 body {
-  font-family: $font-family-primary;
+  background-color: var(--color-bg-primary); // Use CSS variable
+  color: var(--color-text-primary); // Use CSS variable
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: $light-bg; // Новый светлый фон
-  color: $text-color;
-  line-height: $line-height-base;
-  overflow-x: hidden; // Предотвращаем горизонтальный скролл
+
+  transition: background-color var(--transition-speed-normal) var(--transition-ease); // Smooth transition for background
+  
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+  overflow-x: hidden; 
 }
 
 #root {
@@ -27,23 +118,30 @@ body {
 
 main {
   flex-grow: 1;
-  padding: $padding-lg;
-  max-width: 1200px; // Ограничение по ширине для лучшей читаемости
-  margin: 0 auto; // Центрирование контента
-  width: 100%; // Гарантируем, что занимает всю доступную ширину
+  padding: var(--padding-lg); // Use CSS variable
+  max-width: 1200px; 
+  margin: 0 auto; 
+  width: 100%; 
+  transition: background-color var(--transition-speed-normal) var(--transition-ease);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: $dark-bg; // Более темный цвет для заголовков
-  margin-bottom: $spacing-unit * 2;
+  color: var(--color-text-primary); // Use CSS variable
+  margin-bottom: var(--spacing-unit-2); // Use CSS variable
+  transition: color var(--transition-speed-normal) var(--transition-ease);
+}
+
+.icon-color {
+  color: var(--color-text-primary); // Use CSS variable
+  transition: color var(--transition-speed-normal) var(--transition-ease);
 }
 
 a {
-  color: $primary-color;
+  color: var(--color-primary); // Use CSS variable
   text-decoration: none;
-  transition: color $transition-speed-fast $transition-ease;
+  transition: color var(--transition-speed-fast) var(--transition-ease);
 
-  &:hover {
-    color: darken($primary-color, 10%);
+ &:hover {
+    color: var(--color-primary-hover); 
   }
 }

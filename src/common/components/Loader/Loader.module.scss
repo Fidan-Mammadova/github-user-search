@@ -1,22 +1,22 @@
 // src/components/common/Loader/Loader.module.scss
-@import '../../../styles/variables';
 @import '../../../styles/mixins';
+@import '../../../styles/variables';
 
 .loaderContainer {
   @include flex-center;
   flex-direction: column;
   padding: $padding-lg;
   text-align: center;
-  min-height: 150px; // Минимальная высота, чтобы лоадер не "прыгал"
+  min-height: 150px; 
 }
 
 .spinner {
-  border: 4px solid rgba($primary-color, 0.2); // Более тонкая и прозрачная граница
-  border-top-color: $primary-color; // Основной цвет сверху
+  border: 4px solid rgba($primary-color, 0.2); 
+  border-top-color: $primary-color; 
   border-radius: 50%;
   width: 50px; // Чуть больше
   height: 50px;
-  animation: spin 1s cubic-bezier(0.5, 0, 0.5, 1) infinite; // Более плавное вращение
+  animation: spin 1s cubic-bezier(0.5, 0, 0.5, 1) infinite; 
   margin-bottom: $spacing-unit * 2;
 }
 
