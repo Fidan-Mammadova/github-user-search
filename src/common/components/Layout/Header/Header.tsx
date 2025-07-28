@@ -12,15 +12,15 @@ export const Header: React.FC = () => {
       <div className={styles.container}>
         <h1 className={styles.title}>Github User Search</h1>
         <button
-        className={styles.themeButton} // Используем класс для кнопки переключения темы
+        className={styles.themeButton}
         data-testid="themeButton"
         type="button"
-        onClick={toggleTheme} // Используем функцию toggleTheme из контекста
+        onClick={toggleTheme} 
         aria-label={`Toggle theme to ${theme === 'light' ? 'dark' : 'light'}`}
-        data-theme={theme} // Добавляем data-theme для стилизации
+        data-theme={theme} 
       >
-        {theme === 'light' ? 'Dark' : 'Light'}{' '} {/* Текст переключателя */}
-        {theme === 'light' ? <FaMoon /> : <FaSun />} {/* Иконки */}
+        {theme === 'light' ? 'Dark' : 'Light'}{' '} 
+        {theme === 'light' ? <FaMoon /> : <FaSun />} 
       </button>
       </div>
     </header>

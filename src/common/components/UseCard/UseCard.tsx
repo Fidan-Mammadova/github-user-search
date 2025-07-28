@@ -1,4 +1,4 @@
-// src/components/UserCard/UserCard.tsx
+
 import React from 'react';
 import styles from './UseCard.module.scss';
 import type { GitHubUser } from '../../types/index'; 

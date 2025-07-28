@@ -13,11 +13,11 @@ export const githubApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://api.github.com/',
     prepareHeaders: (headers) => {
-      // Add authorization token if available
+   
       if (GITHUB_ACCESS_TOKEN) {
         headers.set('Authorization', `token ${GITHUB_ACCESS_TOKEN}`);
       }
-      headers.set('Accept', 'application/vnd.github.v3+json'); // Recommended header for GitHub API
+      headers.set('Accept', 'application/vnd.github.v3+json'); 
       return headers;
     },
   }),

@@ -1,68 +1,58 @@
-// src/styles/_variables.scss
+$primary-color: rgb(43, 66, 91);
+$secondary-color: #6c757d;
+$accent-color: rgb(42, 104, 205);
+$success-color: #4caf50;
+$danger-color: #f44336;
+$warning-color: #ff9800;
+$info-color: rgb(5, 58, 143);
 
+$light-theme-background: #f5f7fa;
+$dark-theme-background: #2a3550;
 
+$light-theme-card-background: #ffffff;
+$dark-theme-card-background: #334871;
 
-$primary-color:rgb(43, 66, 91); // Синий для акцентов (используется в button-styles по умолчанию)
-$secondary-color: #6c757d; 
-$accent-color:rgb(42, 104, 205); 
-$success-color: #4caf50; 
-$danger-color: #f44336; // Красный для ошибок
-$warning-color: #ff9800; // Оранжевый
-$info-color:rgb(5, 58, 143); // Голубой
+$light-theme-text-color: #333333;
+$dark-theme-text-color: #ffffff;
 
+$light-theme-light-text: #697c9a;
+$dark-theme-light-text: #90a4d4;
 
+$light-theme-icon-color: #4a638b;
+$dark-theme-icon-color: #00bcd4;
 
-$light-theme-background: #f5f7fa; // Светлый фон страницы
-$dark-theme-background: #2a3550; // Темный фон страницы
+$light-theme-border-color: #e0e0e0;
+$dark-theme-border-color: #2d3b5c;
 
-$light-theme-card-background: #ffffff; // Фон карточек в светлой теме
-$dark-theme-card-background: #334871; // Фон карточек в темной теме
-
-$light-theme-text-color: #333333; // Основной текст в светлой теме
-$dark-theme-text-color: #ffffff; // Основной текст в темной теме
-
-$light-theme-light-text: #697c9a; // Второстепенный/светлый текст в светлой теме
-$dark-theme-light-text: #90a4d4; // Второстепенный/светлый текст в темной теме
-
-$light-theme-icon-color: #4a638b; // Цвет иконок в светлой теме
-$dark-theme-icon-color: #00bcd4; // Цвет иконок в темной теме (акцентный)
-
-$light-theme-border-color: #e0e0e0; // Цвет границ в светлой теме
-$dark-theme-border-color: #2d3b5c; // Цвет границ в темной теме
-
-// Радиусы скругления
-$border-radius: 8px; // Базовый радиус
-$border-radius-lg: 12px; // Больший радиус для карточек/секций
+$border-radius: 8px;
+$border-radius-lg: 12px;
 
 $box-shadow-light: 0 4px 6px rgba(58, 57, 57, 0.08);
 $box-shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.15);
 $box-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.2);
 
-// Отступы и интервалы
-$spacing-unit: 8px; // Базовая единица отступа
-$padding-sm: $spacing-unit * 1.5; // 12px
-$padding-md: $spacing-unit * 2;   // 16px
-$padding-lg: $spacing-unit * 3;   // 24px
+$spacing-unit: 8px;
+$padding-sm: $spacing-unit * 1.5;
+$padding-md: $spacing-unit * 2;
+$padding-lg: $spacing-unit * 3;
 
-// Типографика
-$font-family-primary: 'Space Mono', sans-serif; // Используем Space Mono
+$font-family-primary: 'Space Mono', sans-serif;
 $font-size-base: 16px;
 $line-height-base: 1.6;
 
-// Переходы (для анимаций)
 $transition-speed-fast: 0.15s;
 $transition-speed-normal: 0.3s;
 $transition-speed-slow: 0.5s;
 $transition-ease: ease-in-out;
 
-// Брейкпоинты для адаптивного дизайна (используются в миксинах)
-$max-width-desktop: 900px; // Максимальная ширина контента для десктопов
+$max-width-desktop: 900px;
 
 @mixin flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 @mixin respond-to($breakpoint) {
   @if $breakpoint == 'small' {
     @media (max-width: 600px) {
@@ -74,9 +64,7 @@ $max-width-desktop: 900px; // Максимальная ширина контен
       @content;
     }
   }
-
 }
-
 
 @mixin card-shadow {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);

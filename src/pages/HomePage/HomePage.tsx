@@ -1,4 +1,4 @@
-// src/pages/HomePage/HomePage.tsx
+
 import React, { useState, useEffect, useCallback } from 'react';
 import styles from './HomePage.module.scss';
 import { Input } from '../../common/components/Input/Input';
@@ -35,7 +35,7 @@ const {
 
 
   const apiErrorMessage = isError
-    ? (error as GitHubApiError)?.message || 'Произошла неизвестная ошибка при поиске.'
+    ? (error as GitHubApiError)?.message || 'An unknown error occurred during the search.'
     : '';
 
 
