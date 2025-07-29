@@ -1,69 +1,33 @@
-# React + TypeScript + Vite
+GitHub Link:
+https://github.com/Fidan-Mammadova/github-user-search.git
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Vercel Link:
+https://github-user-search-kxd5.vercel.app/
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+I have completed the GitHub user search project. Here's what the application does:
 
-## Expanding the ESLint configuration
+1. Allows searching GitHub users by login using GitHub API.
+2. Displays a list of matched users (avatar and login).
+3. Clicking on a user reveals detailed info: name, bio, public repos, and GitHub profile link.
+4. Search input uses a 500ms debounce to avoid spamming the API.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Stack and implementation details:
+- Built with ReactJS and TypeScript. All components are strictly typed.
+- API requests are handled with RTK Query.
+- Styling is implemented with SCSS Modules (no global CSS).
+- Debounce implemented via a custom `useDebounce` hook.
+- Loading spinner appears while fetching.
+- API errors are handled gracefully with user feedback.
+- Unnecessary re-renders are avoided via memoization (`React.memo`, `useCallback`, etc.).
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+ Bonus:
+- Fully responsive design.
+- At least one basic unit test included (component rendering test).
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+ Covered evaluation points:
+1. Clean, readable code with proper structure and typings.
+2. Solid API handling: RTK Query, caching, loading & error states.
+3. UX considerations: error feedback, debounce, animations.
+4. Performance: memoization and preventing re-renders.
+5. Modular SCSS-based styling.
